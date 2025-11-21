@@ -93,7 +93,6 @@ public class EditingWindow extends Window{
             String fieldText = itemTextField.getText();
             if(!fieldText.equals("")) {
                 createTextItem(file, fieldText);
-                System.out.println("Hi");
             }
             if(!itemTextField.isVisible()){
                 itemTextField.setVisible(true);
@@ -141,6 +140,7 @@ public class EditingWindow extends Window{
                 textItemDisplay(listItem);
             }
             mainFrame.revalidate();
+            mainPanel.revalidate();
         }
         catch (FileNotFoundException e)
         {
