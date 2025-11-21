@@ -73,7 +73,6 @@ public class MainWindow extends Window{
             } catch (Exception err){
                 err.printStackTrace();
             }
-            System.out.println("Hello");
             mainPanel.revalidate();
         });
 

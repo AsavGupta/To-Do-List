@@ -119,7 +119,6 @@ public class EditingWindow extends Window{
         try (BufferedWriter writer = Files.newBufferedWriter(
                 Paths.get(file.toURI()),
                 StandardOpenOption.APPEND)){
-            writer.newLine();
             writer.write(itemText + ":0");
             writer.flush();
             loadTextItems(file);
