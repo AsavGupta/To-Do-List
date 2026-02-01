@@ -165,6 +165,7 @@ public class MainWindow extends Window{
                 listPanelArrayList.add(listPanel);
                 listPanelDisplay(listPanel);
             }
+            fileLabel.setText("Loaded Directory");
         } else {
             fileLabel.setText("Files Failed to Load");
         }
