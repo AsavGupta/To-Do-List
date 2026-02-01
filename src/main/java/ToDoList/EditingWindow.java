@@ -120,6 +120,7 @@ public class EditingWindow extends Window{
                 Paths.get(file.toURI()),
                 StandardOpenOption.APPEND)){
             writer.write(itemText + ":0");
+            writer.newLine();
             writer.flush();
             loadTextItems(file);
         }
@@ -130,9 +131,11 @@ public class EditingWindow extends Window{
 
     public static void loadTextItems(File file){
         try {
+            mainFrame.revalidate();
+            mainPanel.revalidate();
             mainPanel.removeAll();
             for (Scanner scanner = new Scanner(file); scanner.hasNext(); ) {
-                String data = scanner.next();
+                String data = scanner.nextLine();
                 boolean completed = data.endsWith(":1");
                 String text = data.substring(0,data.length()-2);
                 listItem listItem = new listItem(text, completed, file);
