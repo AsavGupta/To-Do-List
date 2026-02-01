@@ -62,6 +62,7 @@ public class listPanel{
         editButton.addActionListener(e -> {
             EditingWindow editingWindow = new EditingWindow(file);
             MainWindow.fileLabel.setText("Editing List: " + listLabel.getText());
+            itemTextDisplay();
         });
 
         //--Right/Left Arrows--
@@ -93,13 +94,14 @@ public class listPanel{
             String line = reader.readLine();
             int lineCount = 0;
 
-            while (!Objects.equals(line, "") && !Objects.equals(line, null) && lineCount< maxDoListLinesDisplayed) {
+            while (!Objects.equals(line, "") && !Objects.equals(line, null) && lineCount < maxDoListLinesDisplayed) {
                 doTextPanel.add(new JLabel(line.substring(0,line.length()-2)));
                 line = reader.readLine();
                 lineCount++;
             }
             reader.close();
             listPanel.add(doTextPanel, BorderLayout.CENTER);
+            listPanel.revalidate();
         } catch (IOException e) {
             e.printStackTrace();
         }
