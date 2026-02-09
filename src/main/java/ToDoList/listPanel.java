@@ -95,7 +95,11 @@ public class listPanel{
             int lineCount = 0;
 
             while (!Objects.equals(line, "") && !Objects.equals(line, null) && lineCount < maxDoListLinesDisplayed) {
-                doTextPanel.add(new JLabel(line.substring(0,line.length()-2)));
+                String text = line.substring(0,line.length()-2);
+                boolean checked = line.endsWith(":1");
+                JLabel textLabel = new JLabel(text);
+                if (checked) textLabel.setForeground(Color.GREEN);
+                doTextPanel.add(textLabel);
                 line = reader.readLine();
                 lineCount++;
             }
