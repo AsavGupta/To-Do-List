@@ -130,24 +130,23 @@ public class EditingWindow extends Window{
     }
 
     public static void loadTextItems(File file){
-        try {
-            mainFrame.revalidate();
-            mainPanel.revalidate();
-            mainPanel.removeAll();
-            for (Scanner scanner = new Scanner(file); scanner.hasNext(); ) {
+        mainFrame.revalidate();
+        mainPanel.revalidate();
+        mainPanel.removeAll();
+        try (Scanner scanner = new Scanner(file)){
+            while (scanner.hasNext()){
                 String data = scanner.nextLine();
                 boolean completed = data.endsWith(":1");
                 String text = data.substring(0,data.length()-2);
                 listItem listItem = new listItem(text, completed, file);
                 textItemDisplay(listItem);
             }
-            mainFrame.revalidate();
-            mainPanel.revalidate();
         }
-        catch (FileNotFoundException e)
-        {
+        catch (FileNotFoundException e){
             throw new RuntimeException(e);
         }
+        mainFrame.revalidate();
+        mainPanel.revalidate();
     }
 
     private static void textItemDisplay(listItem item){

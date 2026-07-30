@@ -9,11 +9,11 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class listPanel{
-    static File file;
-    static JPanel listPanel;
+    private File file;
+    private JPanel listPanel;
     Font listFont = new Font("Arial", Font.BOLD, 20);
     listPanel(File file) {
-        ToDoList.listPanel.file = file;
+        this.file = file;
         createPanel();
     }
 
@@ -84,7 +84,7 @@ public class listPanel{
         textPanel.add(setRightButton);
     }
 
-    public static void itemTextDisplay(){
+    public void itemTextDisplay(){
         int maxDoListLinesDisplayed = 10;
         JPanel doTextPanel = new JPanel();
         doTextPanel.setLayout(new GridLayout(0,1));
