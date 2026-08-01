@@ -28,7 +28,7 @@ public class EditingWindow extends Window{
         mainFrame.setSize(800,500);
         mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         mainFrame.setVisible(true);
-        mainFrame.setIconImage(imageResizer("src/main/resources/Images/Calendar.png",36,36).getImage());
+        mainFrame.setIconImage(imageResizer("/Images/Calendar.png",36,36).getImage());
         mainFrame.setTitle(file.getName().replace(".txt",""));
 
         //---Main Panel---
