@@ -18,6 +18,10 @@ public class MainWindow extends Window{
     public MainWindow(){
         try {
             UIManager.setLookAndFeel(new FlatGitHubDarkIJTheme());
+            File listsFolder = new File(listDirectory);
+            if (!listsFolder.exists()){
+                listsFolder.mkdirs();
+            }
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -30,7 +34,7 @@ public class MainWindow extends Window{
         mainFrame.setSize(800,500);
         mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         mainFrame.setVisible(true);
-        mainFrame.setIconImage(imageResizer(System.getProperty("user.dir") + "\\Images\\Calendar.png",36,36).getImage());
+        mainFrame.setIconImage(imageResizer("/Images/Calendar.png",36,36).getImage());
         mainFrame.setBackground(Color.BLACK);
         mainFrame.add(desktop);
 
@@ -57,7 +61,7 @@ public class MainWindow extends Window{
 
         //--Settings Button--
         JButton settingsButton = new JButton();
-        settingsButton.setIcon(imageResizer(System.getProperty("user.dir") + "\\Images\\Settings.png",20,20));
+        settingsButton.setIcon(imageResizer("/Images/Settings.png",20,20));
         settingsButton.setOpaque(false);
         settingsButton.setFocusable(false);
         settingsButton.setMargin(new Insets(0,0,0,0));
@@ -141,7 +145,7 @@ public class MainWindow extends Window{
     private void createToDoList(JTextField textField, JLabel label){
         label.setVisible(true);
         try {
-            File myFile = new File(listDirectory + textField.getText() + ".txt");
+            File myFile = new File(listDirectory + File.separator + textField.getText() + ".txt");
             if (myFile.createNewFile()) {
                 label.setText("File created: " + myFile.getName());
                 textField.setVisible(false);

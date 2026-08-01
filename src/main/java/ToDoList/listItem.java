@@ -66,7 +66,7 @@ public class listItem {
         JButton deleteButton = new JButton();
         deleteButton.setOpaque(false);
         deleteButton.setFocusPainted(false);
-        deleteButton.setIcon(MainWindow.imageResizer(System.getProperty("user.dir") + "\\Images\\DeleteIcon.png",24,24));
+        deleteButton.setIcon(MainWindow.imageResizer("/Images/DeleteIcon.png",24,24));
         deleteButton.addActionListener(e -> {
             try {
                 deleteButtonSave();
@@ -82,9 +82,9 @@ public class listItem {
 
     private ImageIcon checkMarkSwitch(){
         if (!completed){
-            return imageResizer(System.getProperty("user.dir") + "\\Images\\Uncheckedmark.png",24,24);
+            return imageResizer("/Images/Uncheckedmark.png",24,24);
         }
-        return imageResizer(System.getProperty("user.dir") + "\\Images\\Checkmark.png",24,24);
+        return imageResizer("/Images/Checkmark.png",24,24);
     }
 
     private void saveCheckedStatus() throws IOException {

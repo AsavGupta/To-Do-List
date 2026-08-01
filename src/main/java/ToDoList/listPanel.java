@@ -44,7 +44,7 @@ public class listPanel{
 
         //--Delete Button--
         JButton deleteButton = listButtons();
-        deleteButton.setIcon(MainWindow.imageResizer(System.getProperty("user.dir") + "\\Images\\DeleteIcon.png",20,20));
+        deleteButton.setIcon(MainWindow.imageResizer("/Images/DeleteIcon.png",20,20));
         deleteButton.addActionListener(e -> {
             if (file.delete()) {
                 MainWindow.fileLabel.setText("Deleted the File: " + file.getName());
@@ -58,7 +58,7 @@ public class listPanel{
 
         //--Edit Button--
         JButton editButton = listButtons();
-        editButton.setIcon(MainWindow.imageResizer(System.getProperty("user.dir") + "\\Images\\EditCalendar.png",20,20));
+        editButton.setIcon(MainWindow.imageResizer("/Images/EditCalendar.png",20,20));
         editButton.addActionListener(e -> {
             EditingWindow editingWindow = new EditingWindow(file);
             MainWindow.fileLabel.setText("Editing List: " + listLabel.getText());
